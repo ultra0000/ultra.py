@@ -3,6 +3,7 @@ import random
 import urllib
 import requests
 import bs4
+import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = 'u!')
@@ -10,6 +11,12 @@ client = commands.Bot(command_prefix = 'u!')
 @client.event
 async def on_ready():
   print('Running!')
+
+client.remove_command("help")
+
+for filename in os.listdir('./cogs'):
+     if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
 
 @client.command()
 async def ping(ctx):
@@ -64,6 +71,5 @@ async def say(ctx, *, text):
       return
   await ctx.message.delete()
   await ctx.send(text)
-
 
 client.run(TOKEN)
