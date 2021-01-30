@@ -1,2 +1,2 @@
 # ultra.py
-terrible bot i made
+terrible discord bot i made
