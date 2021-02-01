@@ -66,9 +66,6 @@ async def google(ctx, *, query):
 @client.command()
 async def say(ctx, *, text):
   text_components = text.split()
-  if "@everyone" in text_components or "@here" in text_components:
-      await ctx.send("You cannot have \"everyone\" or \"here\" in your message!")
-      return
   await ctx.message.delete()
   await ctx.send(text)
 
