@@ -63,10 +63,4 @@ async def google(ctx, *, query):
       link = linkElements[i].get("href")
   await ctx.send("Result: \nhttp://google.com"+link)
 
-@client.command()
-async def say(ctx, *, text):
-  text_components = text.split()
-  await ctx.message.delete()
-  await ctx.send(text)
-
 client.run(TOKEN)
